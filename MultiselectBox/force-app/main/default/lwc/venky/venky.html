@@ -1,0 +1,49 @@
+<template>
+    <lightning-card>
+      <div class="slds-dueling-list">
+        <div class="slds-dueling-list__column" style="margin-left: 20px; width : 60%">
+            <span class="slds-form-element__label" id="label-104" style="font-size: 20px; margin-left: 43%">Products</span>
+            <div class="slds-dueling-list__options" style="width : 100%">
+              <ul id="list" aria-describedby="option-drag-label" aria-labelledby="label-104" aria-multiselectable="true" class="slds-listbox slds-listbox_vertical" role="listbox">
+                <template  for:each={dataList} for:item="opt">
+                <li id ={opt} key={opt} data-id ={opt} role="presentation" class="slds-listbox__item" onclick={selectItem}>
+                  <div class="slds-listbox__option slds-listbox__option_plain slds-media slds-media_small slds-media_inline slds-is-selected"
+                    draggable="true" role="option" tabindex="0" >
+                    <span class="slds-media__body">
+                      <span class="slds-truncate" >{opt}</span>
+                    </span>
+                  </div>
+                </li>
+            </template>
+              </ul>
+            </div>
+          </div>
+          <div class="slds-dueling-list__column" style="margin-left: 10px; align-items : center;">
+            <span style="margin-top : 20px">Top</span>
+            <button class="slds-button slds-button_icon slds-button_icon-container" style="margin-top : 4px; margin-bottom : 10px; border: 1px solid grey" title="Move Selection Up" onclick={moveTop}>
+                ▲
+              <span class="slds-assistive-text">Move Selection Up</span>
+            </button>
+            <span>Up</span>
+            <button class="slds-button slds-button_icon slds-button_icon-container" style="border: 1px solid grey; margin-bottom : 10px;" title="Move Selection Up" onclick={moveUp}>
+                ▲
+              <span class="slds-assistive-text">Move Selection Up</span>
+            </button>
+            <button class="slds-button slds-button_icon slds-button_icon-container" style="border: 1px solid grey;" title="Move Selection Down" onclick={moveDown}>
+                ▼
+              <span class="slds-assistive-text">Move Selection Down</span>
+            </button>
+            <span style=" margin-bottom : 10px;">Down</span>
+            <button class="slds-button slds-button_icon slds-button_icon-container" style="border: 1px solid grey" title="Move Selection Down" onclick={moveBottom}>
+                ▼
+              <span class="slds-assistive-text">Move Selection to Bottom</span>
+            </button>
+            <span>Bottom</span>
+          </div>
+          </div>
+          <div style="margin-top: 10px;">
+          <lightning-button label="Save" title="Non-primary action"  style="margin-left: 25%;" class="slds-m-left_x-large" onclick={save}></lightning-button>
+          <lightning-button label="Cancel" title="Non-primary action"  class="slds-m-left_small" onclick={cancel}></lightning-button>
+        </div>
+        </lightning-card>
+</template>
